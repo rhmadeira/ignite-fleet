@@ -1,22 +1,30 @@
 import 'react-native-gesture-handler';
 
-import { MD3LightTheme as DefaultTheme, PaperProvider } from 'react-native-paper';
+import {
+  useFonts,
+  Roboto_400Regular,
+  Roboto_500Medium,
+  Roboto_700Bold,
+} from '@expo-google-fonts/roboto';
+import { ThemeProvider } from 'styled-components';
 
-import { SignIn } from '@/screens/Signin';
-
-const theme = {
-  ...DefaultTheme,
-  colors: {
-    ...DefaultTheme.colors,
-    primary: 'tomato',
-    secondary: 'yellow',
-  },
-};
+import SignIn from '@/screens/sign-in';
+import theme from '@/shared/theme';
 
 export default function App() {
+  const [loaded] = useFonts({
+    Roboto_400Regular,
+    Roboto_500Medium,
+    Roboto_700Bold,
+  });
+
+  if (!loaded) {
+    return null;
+  }
+
   return (
-    <PaperProvider theme={theme}>
+    <ThemeProvider theme={theme}>
       <SignIn />
-    </PaperProvider>
+    </ThemeProvider>
   );
 }
