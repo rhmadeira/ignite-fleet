@@ -6,9 +6,11 @@ import {
   Roboto_500Medium,
   Roboto_700Bold,
 } from '@expo-google-fonts/roboto';
+import { StatusBar } from 'react-native';
 import { ThemeProvider } from 'styled-components';
 
-import SignIn from '@/screens/sign-in';
+import Loading from '@/components/Loading';
+import { SignIn } from '@/screens/sign-in';
 import theme from '@/shared/theme';
 
 export default function App() {
@@ -19,11 +21,17 @@ export default function App() {
   });
 
   if (!loaded) {
-    return null;
+    return (
+      <>
+        <StatusBar barStyle="light-content" backgroundColor="transparent" translucent />
+        <Loading />
+      </>
+    );
   }
 
   return (
     <ThemeProvider theme={theme}>
+      <StatusBar barStyle="light-content" backgroundColor="transparent" translucent />
       <SignIn />
     </ThemeProvider>
   );
