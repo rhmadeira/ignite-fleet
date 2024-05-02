@@ -1,9 +1,6 @@
 import styled from 'styled-components/native';
 
-export const Container = styled.ImageBackground`
+export const Container = styled.View`
   flex: 1;
-  align-items: center;
-  justify-content: center;
-  padding: 0 32px;
-  background-color: #f0a0f5;
+  background-color: ${({ theme }) => theme.COLORS.GRAY_800};
 `;

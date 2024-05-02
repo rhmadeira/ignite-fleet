@@ -35,10 +35,10 @@ export default function App() {
   return (
     <AppProvider id={REALM_APP_ID}>
       <ThemeProvider theme={theme}>
+        <StatusBar barStyle="light-content" backgroundColor="transparent" translucent />
         <UserProvider fallback={SignIn}>
           <Home />
         </UserProvider>
-        <StatusBar barStyle="light-content" backgroundColor="transparent" translucent />
       </ThemeProvider>
     </AppProvider>
   );
