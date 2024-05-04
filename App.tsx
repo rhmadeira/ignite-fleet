@@ -12,7 +12,7 @@ import { StatusBar } from 'react-native';
 import { ThemeProvider } from 'styled-components';
 
 import Loading from '@/components/Loading';
-import Home from '@/screens/Home';
+import { Routes } from '@/routes';
 import SignIn from '@/screens/SignIn';
 import theme from '@/shared/theme';
 
@@ -37,7 +37,7 @@ export default function App() {
       <ThemeProvider theme={theme}>
         <StatusBar barStyle="light-content" backgroundColor="transparent" translucent />
         <UserProvider fallback={SignIn}>
-          <Home />
+          <Routes />
         </UserProvider>
       </ThemeProvider>
     </AppProvider>
