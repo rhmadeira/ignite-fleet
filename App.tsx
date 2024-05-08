@@ -1,4 +1,5 @@
 import 'react-native-gesture-handler';
+import 'react-native-get-random-values';
 
 import { REALM_APP_ID } from '@env';
 import {
