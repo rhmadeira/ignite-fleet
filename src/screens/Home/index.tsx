@@ -16,24 +16,24 @@ export default function Home() {
   const historic = useQuery(Historic);
 
   function handleRegisterMoviment() {
-    navigate('departure');
+    if (vehicleInUse[0]._id) navigate('arrival', { id: vehicleInUse[0]._id.toString() });
+    else navigate('departure');
   }
 
   function fetchVehicle() {
     const vehicleInUse = historic.filtered('status = "departure"');
-    console.log('🚀 ~ fetchVehicle ~ vehicleInUse:', vehicleInUse);
-
     setVehicleInUse(vehicleInUse);
   }
 
   useEffect(() => {
     fetchVehicle();
   }, []);
+
   return (
     <Container>
       <HomeHeader />
       <Content>
-        <CarStatus licensePlate={vehicleInUse[0].license_plate} onPress={handleRegisterMoviment} />
+        <CarStatus licensePlate={vehicleInUse[0]?.license_plate} onPress={handleRegisterMoviment} />
       </Content>
     </Container>
   );

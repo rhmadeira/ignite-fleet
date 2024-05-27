@@ -1,5 +1,6 @@
 import { createStackNavigator } from '@react-navigation/stack';
 
+import { Arrival } from '@/screens/Arrival';
 import { Departure } from '@/screens/Departure';
 import Home from '@/screens/Home';
 
@@ -13,6 +14,7 @@ export default function AppRoutes() {
       }}>
       <Screen name="Home" component={Home} />
       <Screen name="departure" component={Departure} />
+      <Screen name="arrival" component={Arrival} />
     </Navigator>
   );
 }
