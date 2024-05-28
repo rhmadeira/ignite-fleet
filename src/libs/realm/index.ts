@@ -4,5 +4,5 @@ import { Historic } from './schemas/historic';
 
 export const { RealmProvider, useRealm, useQuery, useObject } = createRealmContext({
   schema: [Historic],
-  schemaVersion: 1,
+  schemaVersion: 0,
 });
